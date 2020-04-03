@@ -7,7 +7,7 @@ import Search from './Search.js'
 const App: FunctionalComponent = () => (
   <Router>
     <Home path="/" />
-    <Search path="/:state/:county" />
+    <Search path="/:state/:county?" />
   </Router>
 );
 
