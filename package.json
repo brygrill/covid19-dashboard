@@ -8,11 +8,11 @@
     "build:esm": "snowpack --dest dist/web_modules --optimize",
     "build:ts": "rimraf dist && tsc",
     "build:ts:watch": "tsc -w",
-    "copy": "copyfiles \"src/*.html\" \"src/**/*.gif\" \"src/*.css\" dist -u 1",
-    "dev": "npm run build && concurrently \"npm run build:ts:watch\" \"serve -s dist\"",
+    "copy": "copyfiles \"src/*.html\" \"src/**/*.gif\" \"src/*.ico\" \"src/*.css\" dist -u 1",
+    "dev": "npm run build && concurrently \"npm run build:ts:watch\" \"servor dist --reload\"",
     "lint": "eslint --ext .ts,.tsx src --ignore \"web_modules/**/*.js\"",
     "prestart": "npm run build",
-    "start": "serve -s dist"
+    "start": "servor dist --reload"
   },
   "keywords": [],
   "author": "",
@@ -20,7 +20,9 @@
   "snowpack": {
     "webDependencies": [
       "htm",
+      "htm/preact",
       "preact",
+      "preact/hooks",
       "preact-router"
     ]
   },
@@ -44,6 +46,7 @@
     "prettier": "^2.0.2",
     "rimraf": "^3.0.2",
     "serve": "^11.3.0",
+    "servor": "^3.2.0",
     "snowpack": "^1.6.0",
     "typescript": "^3.8.3"
   }
