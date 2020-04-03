@@ -1,4 +1,5 @@
-import { h, FunctionalComponent } from "/web_modules/preact.js";
+import { h, FunctionalComponent, Fragment } from "/web_modules/preact.js";
+import { useState, useEffect } from "/web_modules/preact/hooks.js";
 import { html } from "/web_modules/htm/preact.js";
 
 const resources = [
@@ -41,21 +42,71 @@ const resources = [
     },
   },
 ];
-const Home: FunctionalComponent = (props) => {
-  console.log(props);
+
+const initialState = {
+  status: "loading",
+  data: {
+    positive: "Loading...",
+    recovered: "Loading...",
+    death: "Loading...",
+  },
+};
+
+const Home: FunctionalComponent = () => {
+  const [usData, setData] = useState(initialState);
+
+  const fetchUS = () => {
+    fetch("https://covidtracking.com/api/us")
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data);
+        setData({ status: "has-data", data: data[0] });
+      })
+      .catch(() => {
+        setData({ status: "error", data: initialState.data });
+      });
+  };
+  useEffect(() => {
+    fetchUS();
+  }, []);
 
   return html`<div>
-    <ul class="list-group">
+    <div class="pb-3">
+      <h3>Latest Numbers</h3>
+      <div class="d-lg-flex justify-content-lg-center">
+      <ul class="list-group list-group-horizontal-sm">
+        <li class="list-group-item list-group-item-danger">
+          Positive: ${usData.data.positive}
+        </li>
+        <li class="list-group-item list-group-item-success">Recovered: ${
+          usData.data.recovered
+        }</li>
+        <li class="list-group-item list-group-item-secondary">Fatal: ${
+          usData.data.death
+        }</li>
+      </ul>
+      </div>
+    </div>
+    <div class="pb-3">
+    <h3>Resources</h1>
+    <div class="list-group">
       ${resources.map((i) => {
         return (
-          <li class="list-group-item">
-            <a href={i.link(window.innerWidth <= 800)} target="_blank">
-              {i.title}
-            </a>
-          </li>
+          // <li class="list-group-item">
+          <a
+            class="list-group-item list-group-item-action"
+            href={i.link(window.innerWidth <= 800)}
+            target="_blank"
+          >
+            {i.title}
+          </a>
+          // </li>
         );
       })}
-    </ul>
+    </div>
+    </div>
   </div>`;
 };
 

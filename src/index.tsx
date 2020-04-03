@@ -4,7 +4,7 @@ import App from "./components/App.js";
 
 const Layout = () => html`<div>
   <nav class="navbar navbar-light bg-light">
-    <a class="navbar-brand" href="/">Covid-19 Resources</a>
+    <a class="navbar-brand" href="/">COVID-19 Meta Dashboard</a>
   </nav>
   <div class="container p-3">
     ${(<App />)}
