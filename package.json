@@ -9,7 +9,7 @@
     "build:esm": "snowpack --dest dist/web_modules --optimize",
     "build:ts": "rimraf dist && tsc",
     "build:ts:watch": "tsc -w",
-    "copy": "copyfiles \"src/*.html\" \"src/**/*.gif\" \"src/*.ico\" \"src/*.css\" dist -u 1",
+    "copy": "copyfiles \"src/*.html\" \"src/**/*.gif\" \"src/*.png\" \"src/*.css\" dist -u 1",
     "dev": "npm run build && concurrently \"npm run build:ts:watch\" \"servor dist --reload\"",
     "lint": "eslint --ext .ts,.tsx src --ignore \"web_modules/**/*.js\"",
     "prestart": "npm run build",
