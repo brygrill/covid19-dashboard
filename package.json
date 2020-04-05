@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "snowpack": "snowpack",
     "build": "npm run build:ts && npm run build:esm && npm run copy",
     "build:esm": "snowpack --dest dist/web_modules --optimize",
     "build:ts": "rimraf dist && tsc",
@@ -21,6 +22,7 @@
     "webDependencies": [
       "htm",
       "htm/preact",
+      "moment",
       "preact",
       "preact/hooks",
       "preact-router"
@@ -28,6 +30,7 @@
   },
   "dependencies": {
     "htm": "^3.0.3",
+    "moment": "^2.24.0",
     "preact": "^10.3.4",
     "preact-router": "^3.2.1"
   },
