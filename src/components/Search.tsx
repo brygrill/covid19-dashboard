@@ -1,6 +1,7 @@
 import { h, FunctionalComponent } from "/web_modules/preact.js";
 import { useState } from "/web_modules/preact/hooks.js";
 
+//https://covidtracking.com/api/states?state=pa
 const initialState = {
   status: "loading",
   data: [],
