@@ -109,11 +109,10 @@ const Home: FunctionalComponent = () => {
       </div>
     </div>
     <div class="pb-3">
-    <h3>Resources</h1>
+    <h3>Resources <i class="fas fa-external-link-square-alt"></i> </h1>
     <div class="list-group">
       ${resources.map((i) => {
         return (
-          // <li class="list-group-item">
           <a
             class="list-group-item list-group-item-action"
             href={i.link(window.innerWidth <= 800)}
@@ -121,7 +120,6 @@ const Home: FunctionalComponent = () => {
           >
             {i.title}
           </a>
-          // </li>
         );
       })}
     </div>
