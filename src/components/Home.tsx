@@ -47,9 +47,9 @@ const resources = [
 const initialState = {
   status: 'loading',
   data: {
-    positive: 'Loading...',
-    recovered: 'Loading...',
-    death: 'Loading...',
+    positive: '...',
+    recovered: '...',
+    death: '...',
     lastModified: null,
   },
 };
@@ -58,7 +58,7 @@ const Home: FunctionalComponent = () => {
   const [usData, setData] = useState(initialState);
 
   const fetchUS = () => {
-    fetch('https://covidtracking.com/api/us')
+    fetch('https://covidtracking.com/api/v1/us/current.json')
       .then((response) => {
         return response.json();
       })
