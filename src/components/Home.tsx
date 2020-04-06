@@ -1,8 +1,6 @@
 import { h, FunctionalComponent } from '/web_modules/preact.js';
 import { useState, useEffect } from '/web_modules/preact/hooks.js';
 
-import { html } from '/web_modules/htm/preact.js';
-
 import Stats from './Stats.js';
 
 const resources = [

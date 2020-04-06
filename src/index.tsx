@@ -1,17 +1,18 @@
-import { h, render } from "/web_modules/preact.js";
-import { html } from "/web_modules/htm/preact.js";
-import App from "./components/App.js";
+import { h, render } from '/web_modules/preact.js';
+import App from './components/App.js';
 
-const Layout = () => html`<div>
-  <nav class="navbar navbar-light bg-light">
-    <a class="navbar-brand" href="/">COVID-19 Meta Dashboard</a>
-  </nav>
-  <div class="container p-3">
-    ${(<App />)}
+const Layout = () => (
+  <div>
+    <nav class="navbar navbar-light bg-light">
+      <a class="navbar-brand" href="/">
+        COVID-19 Meta Dashboard
+      </a>
+    </nav>
+    <div class="container p-3"><App /></div>
   </div>
-</div>`;
+);
 
-const appMount = document.querySelector("#app");
-if (appMount) render(html`<div>${(<Layout />)}</div>`, appMount);
+const appMount = document.querySelector('#app');
+if (appMount) render(<Layout />, appMount);
 
 export default App;

@@ -1,5 +1,4 @@
 import { h } from '/web_modules/preact.js';
-import { html } from '/web_modules/htm/preact.js';
 import moment from '/web_modules/moment.js';
 
 const sinceUpdate = (updateTime: string | null) => {
@@ -24,30 +23,33 @@ const Stats = ({
     lastModified: string | null;
   };
 }) => {
-  return html` <div class="pb-3">
-    <h3>Latest US Numbers</h3>
-    <div class="d-lg-flex justify-content-lg-center">
-      <ul class="list-group list-group-horizontal-sm">
-        <li class="list-group-item list-group-item-danger">
-          Positive: ${data.positive}
-        </li>
-        <li class="list-group-item list-group-item-success">
-          Recovered: ${data.recovered}
-        </li>
-        <li class="list-group-item list-group-item-secondary">
-          Fatal: ${data.death}
-        </li>
-      </ul>
+  return (
+    <div class="pb-3">
+      <h3>Latest US Numbers</h3>
+      <div class="d-lg-flex justify-content-lg-center">
+        <ul class="list-group list-group-horizontal-sm">
+          <li class="list-group-item list-group-item-danger">
+            Positive: {data.positive}
+          </li>
+          <li class="list-group-item list-group-item-success">
+            Recovered: {data.recovered}
+          </li>
+          <li class="list-group-item list-group-item-secondary">
+            Fatal: {data.death}
+          </li>
+        </ul>
+      </div>
+      <div class="py-2">
+        <p class="text-lg-center font-weight-light" style="font-size: 10px;">
+          Via {' '}
+          <a href="https://covidtracking.com" target="_blank">
+            The COVID Tracking Project
+          </a>
+          , updated {sinceUpdate(data.lastModified)}
+        </p>
+      </div>
     </div>
-    <div class="py-2">
-      <p class="text-lg-center font-weight-light" style="font-size: 10px;">
-        Via
-        <a href="https://covidtracking.com" target="_blank"
-          >The COVID Tracking Project</a
-        >, updated ${sinceUpdate(data.lastModified)}
-      </p>
-    </div>
-  </div>`;
+  );
 };
 
 export default Stats;
