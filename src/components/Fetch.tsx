@@ -15,7 +15,6 @@ const initialState = {
 };
 
 const Fetch = ({ search = null }: { search?: string | null }) => {
-  console.log(search);
   const [covidData, setCovidData] = useState(initialState);
 
   const url = search
@@ -63,7 +62,7 @@ const Fetch = ({ search = null }: { search?: string | null }) => {
   };
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [search]);
 
   return <Stats data={covidData.data} label={search || "US"} />;
 };
