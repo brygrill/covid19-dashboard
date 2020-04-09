@@ -34,6 +34,12 @@ const resources = [
     },
   },
   {
+    title: "AWS Data Lake Dashboard",
+    link() {
+      return "https://dj2taa9i652rf.cloudfront.net/dashboard.html?dashboardName=COVID-19";
+    },
+  },
+  {
     title: "COVID-19 Hospital Projections",
     link() {
       return "https://covid19.healthdata.org/";
