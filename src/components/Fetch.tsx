@@ -9,8 +9,8 @@ const initialState = {
     positive: "...",
     recovered: "...",
     death: "...",
-    state: undefined,
-    lastModified: null,
+    state: "",
+    lastModified: "",
   },
 };
 
@@ -28,8 +28,8 @@ const Fetch = ({ search = null }: { search?: string | null }) => {
       recovered: string;
       death: string;
       state: string;
-      dateModified?: string;
-      lastModified?: string;
+      dateModified: string;
+      lastModified: string;
     }[]
   ) => {
     if (search) {
@@ -54,9 +54,7 @@ const Fetch = ({ search = null }: { search?: string | null }) => {
         return response.json();
       })
       .then((data) => {
-        console.log(data);
         const d = filterData(data);
-        console.log(d);
         setCovidData({ status: "has-data", data: d });
       })
       .catch(() => {
