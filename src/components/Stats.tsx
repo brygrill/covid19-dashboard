@@ -15,6 +15,7 @@ const sinceUpdate = (updateTime: string | null) => {
 
 const Stats = ({
   data,
+  label,
 }: {
   data: {
     positive: string;
@@ -22,10 +23,11 @@ const Stats = ({
     death: string;
     lastModified: string | null;
   };
+  label: string;
 }) => {
   return (
     <div class="pb-3">
-      <h3>Latest US Numbers</h3>
+      <h3>Latest {label} Numbers</h3>
       <div class="d-lg-flex justify-content-lg-center">
         <ul class="list-group list-group-horizontal-sm">
           <li class="list-group-item list-group-item-danger">

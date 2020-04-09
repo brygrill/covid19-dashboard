@@ -1,18 +1,15 @@
-import { h, FunctionalComponent } from "/web_modules/preact.js";
-import { useState } from "/web_modules/preact/hooks.js";
+import { h } from "/web_modules/preact.js";
 
-//https://covidtracking.com/api/states?state=pa
-const initialState = {
-  status: "loading",
-  data: [],
-};
+import Fetch from "./Fetch.js";
+import Resources from "./Resources.js";
 
-const Search: FunctionalComponent = (props) => {
-  const [data, setData] = useState(initialState);
-  console.log(props);
-  console.log(data);
-
-  return <div style="background-color: white">Search</div>;
+const Search = ({ state }: { state: string }) => {
+  return (
+    <div>
+      <Fetch search={state.toUpperCase()} />
+      <Resources />
+    </div>
+  );
 };
 
 export default Search;
