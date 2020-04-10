@@ -3,7 +3,9 @@ import { h } from "/web_modules/preact.js";
 import Fetch from "./Fetch.js";
 import Resources from "./Resources.js";
 
-const Search = ({ state }: { state: string }) => {
+// @ts-ignore
+const Search = (props) => {
+  const { state } = props;
   return (
     <div>
       <Fetch search={state.toUpperCase()} />

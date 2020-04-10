@@ -226,6 +226,7 @@ const StateDrop = () => {
       <div class="form-group">
         <select
           class="form-control form-control form-control-sm"
+          // @ts-ignore
           onChange={handleChange}
         >
           <option value="" selected>
