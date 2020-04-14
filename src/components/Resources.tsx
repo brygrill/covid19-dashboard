@@ -40,6 +40,12 @@ const resources = [
     },
   },
   {
+    title: "Bloomberg Graphics",
+    link() {
+      return "https://www.bloomberg.com/graphics/2020-coronavirus-where-is-the-us-on-the-curve/";
+    },
+  },
+  {
     title: "COVID-19 Hospital Projections",
     link() {
       return "https://covid19.healthdata.org/";
